@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NaveedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="HMS_BirthReport">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_DeathReport">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_MedicineCategory">
+    <Key>
+      <PropertyRef Name="medicineID" />
+    </Key>
+    <Property Name="medicineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_OperationReport">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_PatientCaseStudy">
+    <Key>
+      <PropertyRef Name="prescriptionID" />
+    </Key>
+    <Property Name="prescriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodAllergies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TendencyBlood" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HeartDisease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HighBloodPressure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diabetic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surgery" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Accident" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyMedicalHistory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentMedication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BreastFeeding" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HealthInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LowIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_Schedule">
+    <Key>
+      <PropertyRef Name="scheduleID" />
+    </Key>
+    <Property Name="scheduleID" Type="Int32" Nullable="false" />
+    <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="availableDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="startTime" Type="DateTime" Precision="3" />
+    <Property Name="endTime" Type="DateTime" Precision="3" />
+    <Property Name="perPatientTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="NaveedEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HMS_BirthReport" EntityType="Self.HMS_BirthReport" />
+    <EntitySet Name="HMS_DeathReport" EntityType="Self.HMS_DeathReport" />
+    <EntitySet Name="HMS_MedicineCategory" EntityType="Self.HMS_MedicineCategory" />
+    <EntitySet Name="HMS_OperationReport" EntityType="Self.HMS_OperationReport" />
+    <EntitySet Name="HMS_PatientCaseStudy" EntityType="Self.HMS_PatientCaseStudy" />
+    <EntitySet Name="HMS_Schedule" EntityType="Self.HMS_Schedule" />
+    <EntitySet Name="HMS_Medicine" EntityType="NaveedModel.HMS_Medicine" />
+    <EntitySet Name="HMS_Department" EntityType="NaveedModel.HMS_Department" />
+    <EntitySet Name="HMS_BloodGroup" EntityType="NaveedModel.HMS_BloodGroup" />
+    <EntitySet Name="Graphs" EntityType="NaveedModel.Graph" />
+    <EntitySet Name="HMS_Patient" EntityType="NaveedModel.HMS_Patient" />
+    <EntitySet Name="HMS_Document" EntityType="NaveedModel.HMS_Document" />
+    <EntitySet Name="HMS_Doctor" EntityType="NaveedModel.HMS_Doctor" />
+  </EntityContainer>
+  <EntityType Name="HMS_Medicine">
+    <Key>
+      <PropertyRef Name="medicineID" />
+    </Key>
+    <Property Name="medicineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="medicineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_Department">
+    <Key>
+      <PropertyRef Name="departID" />
+    </Key>
+    <Property Name="departID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="departDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HMS_BloodGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Graph">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalValues" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HMS_Patient">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="Int64" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HMS_Document">
+    <Key>
+      <PropertyRef Name="documentID" />
+    </Key>
+    <Property Name="documentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="patientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fileattachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="filename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="filetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="dateOfTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HMS_Doctor">
+    <Key>
+      <PropertyRef Name="docID" />
+    </Key>
+    <Property Name="docID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int64" />
+    <Property Name="Mobile" Type="Int64" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Specialist" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

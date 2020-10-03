@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "AddBirthReport";
+    Layout = "~/Views/myLayout.cshtml";
+}
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1370px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Hospital activities</h1>
+                    <small>Add Birth Report</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            <input type="hidden" name="" id="" value="">
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  form area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="/HospitalActivities/BirthReport"> <i class="fa fa-list"></i>  Birth Report </a>
+                            </div>
+                        </div>
+
+
+                        <div class="panel-body panel-form">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12">
+
+                                    <form action="" class="form-inner" method="post" accept-charset="utf-8">
+                                        <input type="hidden" name="" value="">
+
+
+                                        <input type="hidden" name="id" value="">
+
+                                        <div class="form-group row">
+                                            <label for="patient_id" class="col-xs-3 col-form-label">Patient ID <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <input name="patient_id" type="text" class="form-control" id="patient_id" placeholder="Patient ID" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="date" class="col-xs-3 col-form-label">Date <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <input name="date" type="text" class="form-control datepicker hasDatepicker" id="date" placeholder="Date" value="2020-07-24">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="title" class="col-xs-3 col-form-label">Title <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <input name="title" type="text" class="form-control" id="title" placeholder="Title" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="description" class="col-xs-3 col-form-label">Description</label>
+                                            <div class="col-xs-9">
+                                                <textarea name="description" class="form-control" id="description" placeholder="Description" rows="7"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="doctor_id" class="col-xs-3 col-form-label">Doctor Name </label>
+                                            <div class="col-xs-9">
+                                               <!--Dropdown-->
+                                            </div>
+                                        </div>
+
+
+                                        <!--Radio-->
+                                        <div class="form-group row">
+                                            <label class="col-xs-3">Status</label>
+                                            <div class="col-xs-9">
+                                                <div class="form-check">
+                                                    <label class="radio-inline"><input type="radio" name="status" value="1" checked="">Active</label>
+                                                    <label class="radio-inline"><input type="radio" name="status" value="0">Inactive</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-offset-3 col-sm-6">
+                                                <div class="ui buttons">
+                                                   
+                                                    <button class="ui positive button">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /.content -->
+    </div>
+</body>
+</html>

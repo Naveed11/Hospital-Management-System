@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "DepartmentList";
+    Layout = "~/Views/myLayout.cshtml";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+   
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Department</h1>
+                    <small>Department List</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  table area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-success" href="/Department/AddDepartment"> <i class="fa fa-plus"></i>  Add Department </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table id="tblEmployee" class=" tblEmployee datatable table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" style="width: 100%;" width="100%" cellspacing="0">
+
+                                <thead></thead>
+                                <tbody></tbody>
+
+                            </table>
+                            <!--Department List goes here-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /.content -->
+    </div>
+
+    
+
+    <script>
+        $.ajax({
+            url: "/Department/ListAll",
+            dataType: "JSON",
+            type: "GET",
+            data: {},
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                var item = '';
+                var rows = "<tr class='table-background-color-changer  text-color-changer'>" +
+                    " <th class='text-center'>Department Name</th> <th class='text-center'>Description</th> <th class='text-center '>Status</th>  <th class='text-center'>Action</th> " +
+                    "</tr>";
+                $("#tblEmployee thead").append(rows);
+                $.each(data, function (i, item) {
+                    var bodyRow = "<tr class='text-center'>" +
+                        "<td>" + item.departName + "</td>" +
+                        "<td>" + item.departDescription + "</td>" +
+                        "<td>" + item.Status + "</td>" +
+                        "<td class='text-center'>" +
+
+                        "<a href='#' onclick='edit(" + item.departID + ")' class='btn btn-xs  btn-info' style='margin-left:5px;'><i class='fa fa-edit'></i></a>" +
+                        "<a href='#' onclick='deleteRecord(" + item.departID + ")' class='btn btn-xs  btn-danger' style='margin-left:5px;'><i class='fa fa-trash'></i></a>" +
+                        "</td>"+
+                        
+                        "</tr>";
+                    $("#tblEmployee tbody").append(bodyRow);
+                });
+                $('#tblEmployee').dataTable();
+            },
+            error: function (err) {
+                alert("Something went wrong");
+            }
+
+
+        });
+
+        function edit(value) {
+            
+          
+            var departID = value;
+
+            var url = "/Department/EditPage";
+
+            window.location.href = url + "/" + departID;
+
+
+        }
+
+
+        
+
+       
+
+
+
+        function deleteRecord(value) {
+            var departID = value;
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "/Department/DeleteRecord",
+                    dataType: "JSON",
+                    type: "GET",
+                    data: { departID: departID },
+                    success: function (data) {
+                        window.location.href = "/Department/DepartmentList";
+                    },
+                    error: function (err) {
+                        alert("Something went wrong");
+                    }
+                });
+            }
+            else {
+                return false;
+            }
+        
+        }
+
+    </script>
+
+    
+
+</body>
+</html>

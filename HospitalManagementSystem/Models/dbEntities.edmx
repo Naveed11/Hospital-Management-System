@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NaveedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Graph">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalValues" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HMS_BirthReport">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HMS_BloodGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bloodGroup" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HMS_DeathReport">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HMS_Department">
+          <Key>
+            <PropertyRef Name="departID" />
+          </Key>
+          <Property Name="departID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departName" Type="nvarchar(max)" />
+          <Property Name="departDescription" Type="varchar" MaxLength="2000" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="HMS_Doctor">
+          <Key>
+            <PropertyRef Name="docID" />
+          </Key>
+          <Property Name="docID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="Designation" Type="nvarchar(max)" />
+          <Property Name="Department" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="bigint" />
+          <Property Name="Mobile" Type="bigint" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Specialist" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HMS_Document">
+          <Key>
+            <PropertyRef Name="documentID" />
+          </Key>
+          <Property Name="documentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="fileattachment" Type="nvarchar(max)" />
+          <Property Name="filename" Type="nvarchar(max)" />
+          <Property Name="filetype" Type="nvarchar(max)" />
+          <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="dateOfTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HMS_Medicine">
+          <Key>
+            <PropertyRef Name="medicineID" />
+          </Key>
+          <Property Name="medicineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medicineName" Type="nvarchar" MaxLength="50" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="decription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HMS_MedicineCategory">
+          <Key>
+            <PropertyRef Name="medicineID" />
+          </Key>
+          <Property Name="medicineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HMS_OperationReport">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HMS_Patient">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="bigint" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HMS_PatientCaseStudy">
+          <Key>
+            <PropertyRef Name="prescriptionID" />
+          </Key>
+          <Property Name="prescriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodAllergies" Type="nvarchar" MaxLength="50" />
+          <Property Name="TendencyBlood" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeartDisease" Type="nvarchar" MaxLength="50" />
+          <Property Name="HighBloodPressure" Type="nvarchar" MaxLength="50" />
+          <Property Name="Diabetic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surgery" Type="nvarchar" MaxLength="50" />
+          <Property Name="Accident" Type="nvarchar" MaxLength="50" />
+          <Property Name="Other" Type="nvarchar" MaxLength="50" />
+          <Property Name="FamilyMedicalHistory" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrentMedication" Type="nvarchar" MaxLength="50" />
+          <Property Name="BreastFeeding" Type="nvarchar" MaxLength="50" />
+          <Property Name="HealthInsurance" Type="nvarchar" MaxLength="50" />
+          <Property Name="LowIncome" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="HMS_Schedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="availableDays" Type="nvarchar" MaxLength="50" />
+          <Property Name="startTime" Type="datetime" />
+          <Property Name="endTime" Type="datetime" />
+          <Property Name="perPatientTime" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="NaveedModelStoreContainer">
+          <EntitySet Name="Graph" EntityType="Self.Graph" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_BirthReport" EntityType="Self.HMS_BirthReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_BloodGroup" EntityType="Self.HMS_BloodGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_DeathReport" EntityType="Self.HMS_DeathReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_Department" EntityType="Self.HMS_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_Doctor" EntityType="Self.HMS_Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_Document" EntityType="Self.HMS_Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_Medicine" EntityType="Self.HMS_Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_MedicineCategory" EntityType="Self.HMS_MedicineCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_OperationReport" EntityType="Self.HMS_OperationReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_Patient" EntityType="Self.HMS_Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_PatientCaseStudy" EntityType="Self.HMS_PatientCaseStudy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMS_Schedule" EntityType="Self.HMS_Schedule" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NaveedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HMS_BirthReport">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_DeathReport">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_MedicineCategory">
+          <Key>
+            <PropertyRef Name="medicineID" />
+          </Key>
+          <Property Name="medicineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_OperationReport">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_PatientCaseStudy">
+          <Key>
+            <PropertyRef Name="prescriptionID" />
+          </Key>
+          <Property Name="prescriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodAllergies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TendencyBlood" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeartDisease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HighBloodPressure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diabetic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surgery" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Accident" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyMedicalHistory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentMedication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BreastFeeding" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HealthInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LowIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_Schedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="Int32" Nullable="false" />
+          <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="availableDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="startTime" Type="DateTime" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Precision="3" />
+          <Property Name="perPatientTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="NaveedEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HMS_BirthReport" EntityType="Self.HMS_BirthReport" />
+          <EntitySet Name="HMS_DeathReport" EntityType="Self.HMS_DeathReport" />
+          <EntitySet Name="HMS_MedicineCategory" EntityType="Self.HMS_MedicineCategory" />
+          <EntitySet Name="HMS_OperationReport" EntityType="Self.HMS_OperationReport" />
+          <EntitySet Name="HMS_PatientCaseStudy" EntityType="Self.HMS_PatientCaseStudy" />
+          <EntitySet Name="HMS_Schedule" EntityType="Self.HMS_Schedule" />
+          <EntitySet Name="HMS_Medicine" EntityType="NaveedModel.HMS_Medicine" />
+          <EntitySet Name="HMS_Department" EntityType="NaveedModel.HMS_Department" />
+          <EntitySet Name="HMS_BloodGroup" EntityType="NaveedModel.HMS_BloodGroup" />
+          <EntitySet Name="Graphs" EntityType="NaveedModel.Graph" />
+          <EntitySet Name="HMS_Patient" EntityType="NaveedModel.HMS_Patient" />
+          <EntitySet Name="HMS_Document" EntityType="NaveedModel.HMS_Document" />
+          <EntitySet Name="HMS_Doctor" EntityType="NaveedModel.HMS_Doctor" />
+        </EntityContainer>
+        <EntityType Name="HMS_Medicine">
+          <Key>
+            <PropertyRef Name="medicineID" />
+          </Key>
+          <Property Name="medicineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medicineName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_Department">
+          <Key>
+            <PropertyRef Name="departID" />
+          </Key>
+          <Property Name="departID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="departDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HMS_BloodGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Graph">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalValues" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HMS_Patient">
+          <Key>
+            <PropertyRef Name="patientID" />
+          </Key>
+          <Property Name="patientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="Int64" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HMS_Document">
+          <Key>
+            <PropertyRef Name="documentID" />
+          </Key>
+          <Property Name="documentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fileattachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="doctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="dateOfTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HMS_Doctor">
+          <Key>
+            <PropertyRef Name="docID" />
+          </Key>
+          <Property Name="docID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int64" />
+          <Property Name="Mobile" Type="Int64" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Specialist" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NaveedModelStoreContainer" CdmEntityContainer="NaveedEntities">
+          <EntitySetMapping Name="HMS_BirthReport">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_BirthReport">
+              <MappingFragment StoreEntitySet="HMS_BirthReport">
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_DeathReport">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_DeathReport">
+              <MappingFragment StoreEntitySet="HMS_DeathReport">
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_MedicineCategory">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_MedicineCategory">
+              <MappingFragment StoreEntitySet="HMS_MedicineCategory">
+                <ScalarProperty Name="medicineID" ColumnName="medicineID" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_OperationReport">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_OperationReport">
+              <MappingFragment StoreEntitySet="HMS_OperationReport">
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_PatientCaseStudy">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_PatientCaseStudy">
+              <MappingFragment StoreEntitySet="HMS_PatientCaseStudy">
+                <ScalarProperty Name="prescriptionID" ColumnName="prescriptionID" />
+                <ScalarProperty Name="FoodAllergies" ColumnName="FoodAllergies" />
+                <ScalarProperty Name="TendencyBlood" ColumnName="TendencyBlood" />
+                <ScalarProperty Name="HeartDisease" ColumnName="HeartDisease" />
+                <ScalarProperty Name="HighBloodPressure" ColumnName="HighBloodPressure" />
+                <ScalarProperty Name="Diabetic" ColumnName="Diabetic" />
+                <ScalarProperty Name="Surgery" ColumnName="Surgery" />
+                <ScalarProperty Name="Accident" ColumnName="Accident" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="FamilyMedicalHistory" ColumnName="FamilyMedicalHistory" />
+                <ScalarProperty Name="CurrentMedication" ColumnName="CurrentMedication" />
+                <ScalarProperty Name="BreastFeeding" ColumnName="BreastFeeding" />
+                <ScalarProperty Name="HealthInsurance" ColumnName="HealthInsurance" />
+                <ScalarProperty Name="LowIncome" ColumnName="LowIncome" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_Schedule">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_Schedule">
+              <MappingFragment StoreEntitySet="HMS_Schedule">
+                <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+                <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+                <ScalarProperty Name="availableDays" ColumnName="availableDays" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="perPatientTime" ColumnName="perPatientTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_Medicine">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_Medicine">
+              <MappingFragment StoreEntitySet="HMS_Medicine">
+                <ScalarProperty Name="decription" ColumnName="decription" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="medicineName" ColumnName="medicineName" />
+                <ScalarProperty Name="medicineID" ColumnName="medicineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_Department">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_Department">
+              <MappingFragment StoreEntitySet="HMS_Department">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="departDescription" ColumnName="departDescription" />
+                <ScalarProperty Name="departName" ColumnName="departName" />
+                <ScalarProperty Name="departID" ColumnName="departID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_BloodGroup">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_BloodGroup">
+              <MappingFragment StoreEntitySet="HMS_BloodGroup">
+                <ScalarProperty Name="bloodGroup" ColumnName="bloodGroup" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Graphs">
+            <EntityTypeMapping TypeName="NaveedModel.Graph">
+              <MappingFragment StoreEntitySet="Graph">
+                <ScalarProperty Name="TotalValues" ColumnName="TotalValues" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_Patient">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_Patient">
+              <MappingFragment StoreEntitySet="HMS_Patient">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="patientID" ColumnName="patientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_Document">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_Document">
+              <MappingFragment StoreEntitySet="HMS_Document">
+                <ScalarProperty Name="dateOfTime" ColumnName="dateOfTime" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+                <ScalarProperty Name="filetype" ColumnName="filetype" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="fileattachment" ColumnName="fileattachment" />
+                <ScalarProperty Name="patientName" ColumnName="patientName" />
+                <ScalarProperty Name="documentID" ColumnName="documentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMS_Doctor">
+            <EntityTypeMapping TypeName="NaveedModel.HMS_Doctor">
+              <MappingFragment StoreEntitySet="HMS_Doctor">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Specialist" ColumnName="Specialist" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="docID" ColumnName="docID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

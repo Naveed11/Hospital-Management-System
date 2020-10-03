@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = "DocumentList";
+    Layout = "~/Views/myLayout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Patient</h1>
+                    <small>Document List</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  table area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-success" href="/Patient/AddDocument"> <i class="fa fa-plus"></i>  Add Document </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table id="tblEmployee" class=" tblEmployee datatable table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" style="width: 100%;" width="100%" cellspacing="0">
+
+                                <thead></thead>
+                                <tbody></tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /.content -->
+    </div>
+
+    <script>
+
+        $.ajax({
+            url: "/Patient/GetDocumentList",
+            dataType: "JSON",
+            type: "GET",
+            data: {},
+            success: function (data) {
+               
+                var item = '';
+                var rows = "<tr class='table-background-color-changer  text-color-changer'>" +
+                    " <th class='text-center'>Patient Name</th> <th class='text-center'>Doctor Name</th>   <th class='text-center'>Date</th>  <th class='text-center'>Description</th>  <th class='text-center'>Action</th> " +
+                    "</tr>";
+                $("#tblEmployee thead").append(rows);
+                $.each(data, function (i, item) {
+                    var date = new Date(parseInt((item.dateOfTime).match(/\d+/)[0]));
+                    var datess = date.getDate();
+                    var d = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    var monthss = d[date.getMonth()];
+                    var yearss = date.getFullYear();
+                    var fulldates = datess + "-" + monthss + "-" + yearss;
+                    var bodyRow = "<tr>" +
+                        "<td class='text-center'>" + item.patientName + "</td>" +
+                        "<td class='text-center'>" + item.doctorName + "</td>" +
+                        
+
+                        "<td class='text-center'>" + fulldates + "</td>" +
+
+                        "<td class='text-center'>" + item.description + "</td>" +
+                        
+
+
+                        "<td class='text-center'>" +
+
+                        "<a href='#' onclick='edit(" + item.documentID + ")' class='btn btn-xs  btn-success' style='margin-left:5px;'><i class='fa fa-edit'></i></a>" +
+                        
+                        "<a href='#'  onclick='deleteRecord(" + item.documentID + ")' class='btn btn-xs  btn-danger' style='margin-left:5px;'><i class='fa fa-trash'></i></a>" +
+                        "</td>" +
+
+                        "</tr>";
+                    $("#tblEmployee tbody").append(bodyRow);
+                });
+                $('#tblEmployee').dataTable();
+            },
+            error: function (err) {
+                alert(err+"Something went wrong");
+            }
+
+
+        });
+
+        function deleteRecord(value) {
+            var documentID = value;
+            if (confirm("Are you sure ?")) {
+                $.ajax({
+                    url: "/Patient/DocumentDeleteRecord",
+                    dataType: "JSON",
+                    type: "GET",
+                    data: { documentID: documentID },
+                    success: function (data) {
+                         swal({
+                        title: "Good Job!",
+                        text: "Record has Deleted Successfully.",
+                        type: "success",
+                        timer: 1000
+                    }, function () {
+                        window.location.href = "/Patient/DocumentList";
+                    });
+
+                        
+                    },
+                    error: function (err) {
+                        alert("Something went wrong");
+                    }
+                });
+            }
+
+            else {
+                return false;
+            }
+
+        }
+        function details(value) {
+            var patientID = value;
+            $.ajax({
+                url: "/Patient/GetPatientRecordById",
+                dataType: "json",
+                type: "get",
+                data: { patientID: patientID },
+                success: function (result) {
+                    $(".modal-body #Email").text(result[0].Email);
+                    $(".modal-body #Address").text(result[0].Address);
+                    $(".modal-body #Mobile").text(result[0].Mobile);
+
+                },
+
+                error: function (err) {
+                    alert("Something went wrong");
+                }
+            });
+        }
+
+        function edit(value) {
+            var documentID = value;
+            //console.log(documentID);
+
+            var url = "/Patient/DocumentEditPage";
+            window.location.href = url + "/" + documentID;
+        }
+
+
+
+    </script>
+</body>
+</html>

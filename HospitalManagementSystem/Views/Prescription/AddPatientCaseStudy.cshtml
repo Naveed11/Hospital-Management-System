@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "AddPatientCaseStudy";
+    Layout = "~/Views/myLayout.cshtml";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div class="content-wrapper" style="min-height: 1100px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Prescription</h1>
+                    <small>Add Patient Case Study</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            <input type="hidden" name="CSRF_TOKEN" id="" value="">
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  form area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="/Prescription/PatientCaseStudyList"> <i class="fa fa-list"></i>  Patient Case Study List </a>
+                            </div>
+                        </div>
+
+
+                        <div class="panel-body panel-form">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12">
+
+                                    <form action="" class="form-inner" method="post" accept-charset="utf-8">
+                                        <input type="hidden" name="" value="">
+
+
+                                        <input type="hidden" name="id" value="">
+
+                                        <div class="form-group row">
+                                            <label for="patient_id" class="col-xs-3 col-form-label">Patient ID <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <input name="patient_id" type="text" class="form-control" id="patient_id" placeholder="Patient ID" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="food_allergies" class="col-xs-3 col-form-label">Food Allergies</label>
+                                            <div class="col-xs-9">
+                                                <input name="food_allergies" type="text" class="form-control" id="food_allergies" placeholder="Food Allergies" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="tendency_bleed" class="col-xs-3 col-form-label">Tendency Bleed</label>
+                                            <div class="col-xs-9">
+                                                <input name="tendency_bleed" type="text" class="form-control" id="tendency_bleed" placeholder="Tendency Bleed" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="heart_disease" class="col-xs-3 col-form-label">Heart Disease</label>
+                                            <div class="col-xs-9">
+                                                <input name="heart_disease" type="text" class="form-control" id="heart_disease" placeholder="Heart Disease" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="high_blood_pressure" class="col-xs-3 col-form-label">High Blood Pressure</label>
+                                            <div class="col-xs-9">
+                                                <input name="high_blood_pressure" type="text" class="form-control" id="high_blood_pressure" placeholder="High Blood Pressure" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="diabetic" class="col-xs-3 col-form-label">Diabetic</label>
+                                            <div class="col-xs-9">
+                                                <input name="diabetic" type="text" class="form-control" id="diabetic" placeholder="Diabetic" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="surgery" class="col-xs-3 col-form-label">Surgery</label>
+                                            <div class="col-xs-9">
+                                                <input name="surgery" type="text" class="form-control" id="surgery" placeholder="Surgery" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="accident" class="col-xs-3 col-form-label">Accident</label>
+                                            <div class="col-xs-9">
+                                                <input name="accident" type="text" class="form-control" id="accident" placeholder="Accident" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="others" class="col-xs-3 col-form-label">Others</label>
+                                            <div class="col-xs-9">
+                                                <input name="others" type="text" class="form-control" id="others" placeholder="Others" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="family_medical_history" class="col-xs-3 col-form-label">Family Medical History</label>
+                                            <div class="col-xs-9">
+                                                <input name="family_medical_history" type="text" class="form-control" id="family_medical_history" placeholder="Family Medical History" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="current_medication" class="col-xs-3 col-form-label">Current Medication</label>
+                                            <div class="col-xs-9">
+                                                <input name="current_medication" type="text" class="form-control" id="current_medication" placeholder="Current Medication" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="female_pregnancy" class="col-xs-3 col-form-label">Female Pregnancy</label>
+                                            <div class="col-xs-9">
+                                                <input name="female_pregnancy" type="text" class="form-control" id="female_pregnancy" placeholder="Female Pregnancy" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="breast_feeding" class="col-xs-3 col-form-label">Breast Feeding</label>
+                                            <div class="col-xs-9">
+                                                <input name="breast_feeding" type="text" class="form-control" id="breast_feeding" placeholder="Breast Feeding" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="health_insurance" class="col-xs-3 col-form-label">Health Insurance</label>
+                                            <div class="col-xs-9">
+                                                <input name="health_insurance" type="text" class="form-control" id="health_insurance" placeholder="Health Insurance" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="low_income" class="col-xs-3 col-form-label">Low Income</label>
+                                            <div class="col-xs-9">
+                                                <input name="low_income" type="text" class="form-control" id="low_income" placeholder="Low Income" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="reference" class="col-xs-3 col-form-label">Reference</label>
+                                            <div class="col-xs-9">
+                                                <input name="reference" type="text" class="form-control" id="reference" placeholder="Reference" value="">
+                                            </div>
+                                        </div>
+
+                                        <!--Radio-->
+                                        <div class="form-group row">
+                                            <label class="col-sm-3">Status</label>
+                                            <div class="col-xs-9">
+                                                <div class="form-check">
+                                                    <label class="radio-inline"><input type="radio" name="status" value="1" checked="">Active</label>
+                                                    <label class="radio-inline"><input type="radio" name="status" value="0">Inactive</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-offset-3 col-sm-6">
+                                                <div class="ui buttons">
+                                                   
+                                                    <button class="ui positive button">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /.content -->
+    </div>
+</body>
+</html>
+

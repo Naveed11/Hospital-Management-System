@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        :not(.layout-fixed) .main-sidebar {
+            height: 100% !important;
+        }
+
+        .main-sidebar {
+            padding: 0px !important;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/sweetalert2/6.4.3/sweetalert2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Dashboard - Add Department</title>
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="">
+
+    <!-- jquery ui css -->
+    <!-- Font Awesome 4.7.0 -->
+    <!-- semantic css -->
+
+    <link href="~/css/sementic.min.css" rel="stylesheet" />
+
+    <!-- sliderAccess css -->
+
+    <link href="~/css/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <!-- slider  -->
+
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+    <!-- DataTables CSS -->
+    <!-- pe-icon-7-stroke -->
+    <!-- themify icon css -->
+
+    <link href="~/css/themify.icons.css" rel="stylesheet" />
+    <!-- Pace css -->
+
+    <link href="~/css/flash.css" rel="stylesheet" />
+    <!-- google fonts -->
+
+    <link href="~/css/opensans.css" rel="stylesheet" />
+
+    <link href="~/css/alegreyasans.css" rel="stylesheet" />
+
+    <!-- Theme style -->
+
+    <link href="~/css/custom.css" rel="stylesheet" />
+    <!-- custom style -->
+
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- jQuery  -->
+
+</head>
+<body>
+  
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link">
+            <img src="/images/36ae88214f66496f41748bc540380980.png" alt="AdminLTE Logo" class="" style="opacity: .8; height:30px; margin-left:45px;">
+
+        </a>
+        <!-- Sidebar -->
+        <div class="sidebar os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-scrollbar-vertical-hidden os-host-transition">
+            <div class="os-resize-observer-host observed"><div class="os-resize-observer" style="left: 0px; right: auto;"></div></div><div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;"><div class="os-resize-observer"></div></div><div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 459px;"></div><div class="os-padding">
+                <div class="os-viewport os-viewport-native-scrollbars-invisible">
+                    <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+                        <!-- Sidebar user panel (optional) -->
+                        <!-- SidebarSearch Form -->
+                        <!-- Sidebar Menu -->
+                        <nav class="mt-2">
+                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                                <!-- Add icons to the links using the .nav-icon class
+    with font-awesome or any other icon font library -->
+                                <li class="nav-item menu-open">
+                                    <a href="/Dashboard/Index" class="nav-link active">
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <p>
+                                            Dashboard
+
+                                        </p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-sitemap"></i>
+                                        <p>
+                                            Department
+                                            <i class="fas fa-angle-left right"></i>
+                                            <span class="badge badge-info right"></span>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Department/AddDepartment" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Department</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Department/DepartmentList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Department List</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-user-md"></i>
+                                        <p>
+                                            Doctor
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Doctor/AddDoctor" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Doctor</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Doctor/DoctorList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Doctor List</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-wheelchair"></i>
+                                        <p>
+                                            Patient
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Patient/AddPatient" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Patient</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Patient/PatientList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Patient List</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Patient/AddDocument" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Document</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Patient/DocumentList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Document List</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon  fa fa-calendar"></i>
+                                        <p>
+                                            Schedule
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Schedule/AddSchedule" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Schedule</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Schedule/ScheduleList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Schedule List</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-book"></i>
+                                        <p>
+                                            Prescription
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/Prescription/AddPatientCaseStudy" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Patient Case Study</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Prescription/PatientCaseStudyList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Patient Case Study List</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Prescription/PrescriptionList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Prescription List</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                               
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fa fa-user-md"></i>
+                                        <p>
+                                            Hospital Activities
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/AddBirthReport" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Birth Report</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/BirthReport" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p> Birth Report</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/AddDeathReport" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p> Add Death Report</p>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/DeathReport" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p> Death Report</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/AddOperationReport" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p> Add Operation Report</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/OperationReport" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Operation Report</p>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/AddMedicineCategory" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Medicine Category</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/MedicineCategoryList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Medicine Category List</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/AddMedicine" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Medicine</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/MedicineList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Medicine List</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/AddBloodGroup" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Add Blood Group</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="/HospitalActivities/BloodGroupList" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p> Blood Group List</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                @*<li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-pencil-alt"></i>
+                <p>
+                    Appointment
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="pages/mailbox/mailbox.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Appointment</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/mailbox/compose.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Appointment List</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/mailbox/read-mail.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Assign by All </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/mailbox/read-mail.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Assign by Doctor </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/mailbox/read-mail.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Assign by Representative </p>
+                    </a>
+                </li>
+            </ul>
+        </li>*@
+
+                            </ul>
+                        </nav>
+                        <!-- /.sidebar-menu -->
+                    </div>
+                </div>
+            </div><div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden"><div class="os-scrollbar-track"><div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px);"></div></div></div><div class="os-scrollbar os-scrollbar-vertical os-scrollbar-unusable os-scrollbar-auto-hidden"><div class="os-scrollbar-track"><div class="os-scrollbar-handle" style="height: 100%; transform: translate(0px);"></div></div></div><div class="os-scrollbar-corner"></div>
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+    
+    <div>
+        @RenderBody()
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+   
+    <!-- Bootstrap -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="~/dist/js/demo.js"></script>
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="~/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="~/plugins/raphael/raphael.min.js"></script>
+    <script src="~/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="~/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/plugins/chart.js/Chart.min.js"></script>
+    <!-- PAGE SCRIPTS -->
+    
+</body>
+</html>

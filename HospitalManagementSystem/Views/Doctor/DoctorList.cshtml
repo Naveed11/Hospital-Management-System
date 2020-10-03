@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "DoctorList";
+    Layout = "~/Views/myLayout.cshtml";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    
+    <style>
+        .table-responsive {
+            display: inline-table !important;
+        }
+    </style>
+</head>
+<body>
+    <!--Modal Starts Here-->
+    <div class="modal fade bd-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <!-- content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   
+                </div>
+                <!-- header -->
+                <!-- header -->
+                <!-- body -->
+                <div class="modal-body">
+                    <table class="table table-bordered table-condensed table-responsive table-hover font-family-changer " id="empTable" data-toggle="modal" data-target="#myModal">
+                        <thead>
+                            <tr  style="background-color:#374767; color:white;" class="table-background-color-changer  text-color-changer text-center">
+
+                                <td>Desgination</td>
+                                <td>Address</td>
+                                <td>Specialist</td>
+                                <td>Date of Birth</td>
+                                <td>Sex</td>
+                                <td>Blood Group</td>
+                                <td>Status</td>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr class="text-center">
+                                <td id="Desgination"></td>
+                                <td id="Address"></td>
+                                <td id="Specialist"></td>
+                                <td id="dateofbirth"></td>
+                                <td id="sex"></td>
+                                <td id="bloodgroup"></td>
+                                <td id="status"></td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- body -->
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"
+                            data-dismiss="modal">
+                        Close
+                    </button>
+
+                </div>
+                <!-- footer -->
+
+            </div>
+            <!-- content -->
+
+        </div>
+        <!-- dialog -->
+
+    </div>
+
+    <!--Modal End Here-->
+
+
+
+
+
+
+
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Doctor</h1>
+                    <small>Doctor List</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  table area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-success" href="/Doctor/AddDoctor"> <i class="fa fa-plus"></i>  Add Doctor </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table id="tblEmployee" class=" tblEmployee datatable table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" style="width: 100%;" width="100%" cellspacing="0">
+
+                                <thead></thead>
+                                <tbody></tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /.content -->
+        <script>
+            $.ajax({
+                url: "/Doctor/ListAll",
+                dataType: "JSON",
+                type: "GET",
+                data: {},
+                success: function (data) {
+                   
+                    var item = '';
+                    var rows = "<tr class='table-background-color-changer  text-color-changer'>" +
+                        " <th class='text-center'>First Name</th> <th class='text-center'>Last Name</th> <th class='text-center '>Department</th> <th>Email Address</th> <th>Mobile No</th> <th>Phone No</th> <th class='text-center'>Action</th> " +
+                        "</tr>";
+                    $("#tblEmployee thead").append(rows);
+                    $.each(data, function (i, item) {
+                        var bodyRow = "<tr class='text-center'>" +
+                            "<td>" + item.FirstName + "</td>" +
+                            "<td>" + item.LastName + "</td>" +
+                            "<td>" + item.Department + "</td>" +
+                            "<td>" + item.Email + "</td>" +
+                            "<td>" + item.Mobile + "</td>" +
+                            "<td>" + item.Phone + "</td>" +
+
+                            "<td class='center'>" +
+
+                            "<a href='#' onclick='edit(" + item.docID + ")' class='btn btn-xs  btn-success' style='margin-left:5px;'><i class='fa fa-edit'></i></a>" +
+                            "<a href='#' data-toggle='modal' data-target='.bd-example-modal-lg' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' onclick='details(" + item.docID + ")' class='btn btn-xs btn-modal btn-info' style='margin-left:5px;'><i class='fa fa-info-circle'></i></a>" +
+                            "<a href='#' onclick='deleteRecord(" + item.docID + ")' class='btn btn-xs btn-modal  btn-danger' style='margin-left:5px;'><i class='fa fa-trash'></i></a>" +
+                            "</td>" +
+
+                            "</tr>";
+                        $("#tblEmployee tbody").append(bodyRow);
+                    });
+                    $('#tblEmployee').dataTable();
+                },
+                error: function (err) {
+                    alert("Something went wrong");
+                }
+
+
+            });
+
+            function edit(value) {
+
+
+                var docID = value;
+
+                var url = "/Doctor/EditPage";
+
+                window.location.href = url + "/" + docID;
+
+
+            }
+
+            function details(value) {
+
+                var docID = value;
+                $.ajax({
+                    url: "/Doctor/ListAll",
+                    data: { docID: docID },
+                    dataType: "JSON",
+                    type: "GET",
+                    success: function (result) {
+                        var date = new Date(parseInt((result[0].DateOfBirth).match(/\d+/)[0]));
+                        var datess = date.getDate();
+                        var d = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        var monthss = d[date.getMonth()];
+                        var yearss = date.getFullYear();
+
+                        var fulldates = datess + "-" + monthss + "-" + yearss;
+                        $(".modal-body #Desgination").text(result[0].Designation);
+                        $(".modal-body #Address").text(result[0].Address);
+
+                        $(".modal-body #Specialist").text(result[0].Specialist);
+                        $(".modal-body #dateofbirth").text(fulldates);
+                        $(".modal-body #sex").text(result[0].Sex);
+                        $(".modal-body #bloodgroup").text(result[0].BloodGroup);
+                        $(".modal-body #status").text(result[0].Status);
+
+                        
+                    },
+                    error: function (err) {
+                        alert("Something went wrong");
+                    }
+
+                });
+            }
+
+            function deleteRecord(value) {
+                var docID = value;
+                if (confirm("Are you sure ?")) {
+                    $.ajax({
+                        url: "/Doctor/DeleteRecord",
+                        dataType: "JSON",
+                        type: "GET",
+                        data: { docID: docID },
+                        success: function (data) {
+                            window.location.href = "/Doctor/DoctorList";
+                        },
+                        error: function (err) {
+                            alert("Something went wrong");
+                        }
+                    });
+                }
+
+                else {
+                    return false;
+                }
+              
+            }
+        </script>
+    </div>
+
+</body>
+</html>

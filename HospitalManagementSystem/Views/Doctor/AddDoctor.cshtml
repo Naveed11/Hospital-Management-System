@@ -1,0 +1,267 @@
+﻿
+@{
+    ViewBag.Title = "AddDoctor";
+    Layout = "~/Views/myLayout.cshtml";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/js/jquery.datetimepicker.full.js"></script>
+    <script src="~/js/jquery.datetimepicker.min.js"></script>
+    <script src="~/js/jquery.datetimepicker.full.min.js"></script>
+
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Doctor</h1>
+                    <small>Add Doctor</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  form area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="/Doctor/DoctorList"> <i class="fa fa-list"></i>  Doctor List </a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body panel-form">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12">
+
+
+                                    <div class="form-group row">
+                                        <label for="firstname" class="col-xs-3 col-form-label">First Name <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="lastname" class="col-xs-3 col-form-label">Last Name <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name" value="">
+                                        </div>
+                                    </div>
+
+                                    <!-- display in edit mode -->
+                                    <div class="form-group row">
+                                        <label for="email" class="col-xs-3 col-form-label">Email Address <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <input name="email" class="form-control" type="email" placeholder="Email Address" id="email" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="password" class="col-xs-3 col-form-label">Password <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <input name="password" class="form-control" type="password" placeholder="Password" id="password">
+                                        </div>
+                                    </div>
+                                    <!-- ends of display edit mode-->
+
+
+                                    <div class="form-group row">
+                                        <label for="designation" class="col-xs-3 col-form-label">Designation</label>
+                                        <div class="col-xs-9">
+                                            <input name="designation" type="text" class="form-control" id="designation" placeholder="Designation" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="department_id" class="col-xs-3 col-form-label">Department </label>
+                                        <div class="col-xs-9">
+                                            <!--Dropdown goes here-->
+
+                                            @Html.DropDownList("HMS_Department", (SelectList)ViewBag.departmentList, "Select One", new { @class = "form-control", id = "departmentList" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="address" class="col-xs-3 col-form-label">Address <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <textarea name="address" class="form-control" placeholder="Address" maxlength="140" rows="7" id="address"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="phone" class="col-xs-3 col-form-label">Phone No</label>
+                                        <div class="col-xs-9">
+                                            <input name="phone" class="form-control" type="number" placeholder="Phone No" id="phone" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="mobile" class="col-xs-3 col-form-label">Mobile No <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <input name="mobile" class="form-control" type="number" placeholder="Mobile No" id="mobile" value="">
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <!-- if representative picture is already uploaded -->
+
+                                    <div class="form-group row">
+                                        <label for="picture" class="col-xs-3 col-form-label">Picture</label>
+                                        <div class="col-xs-9">
+                                            <input type="file" name="picture" id="picture" value="">
+                                            <input type="hidden" name="old_picture" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="specialist" class="col-xs-3 col-form-label">Specialist</label>
+                                        <div class="col-xs-9">
+                                            <input type="text" name="specialist" class="form-control" placeholder="Specialist" id="specialist" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="date_of_birth" class="col-xs-3 col-form-label">Date of Birth</label>
+                                        <div class="col-xs-9">
+                                            <input name="date_of_birth" class="form-control" type="text" placeholder="Date of Birth" id="date_of_birth" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-xs-3">Sex <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <div class="form-check">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="sex" value="Male" checked>Male
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="sex" value="Female">Female
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="blood_group" class="col-xs-3 col-form-label">Blood Group</label>
+                                        <div class="col-xs-9">
+                                            @Html.DropDownList("HMS_BloodGroup", (SelectList)ViewBag.bloodGroup, "Select One", new { @class = "form-control", id = "bloodGroup" })
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="form-group row">
+                                        <label class="col-xs-3">Status</label>
+                                        <div class="col-xs-9">
+                                            <div class="form-check">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="status" value="1" checked="">Active
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="status" value="0">Inactive
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-offset-3 col-sm-6">
+                                            <div class="ui buttons">
+
+                                                <button onclick="add()" class="ui positive button">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /.content -->
+    </div>
+
+
+    <script>
+        $(function () {
+            //$('.emailDateArea').datetimepicker().datepicker({dateFormat:'d-MM-yy'});
+            //$('.emailDateArea').datepicker({ dateFormat: 'd-MM-yy' }).datepicker(new Date());
+            $("#date_of_birth").datetimepicker({
+
+                format: 'd-M-y'
+
+
+            });
+
+
+
+
+        });
+       
+        function add() {
+            var firstname = $("#firstname").val();
+            var lastname = $("#lastname").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var designation = $("#designation").val();
+            var departmentList = $("#departmentList option:selected").val();
+            var address = $("#address").val();
+            var phone = $("#phone").val();
+            var mobile = $("#mobile").val();
+            var picture = $("#picture").val();
+            var specialist = $("#specialist").val();
+            var date_of_birth = $("#date_of_birth").val();
+            var sex = $("input[name=sex]:checked").val();
+            var bloodGroup = $("#bloodGroup option:selected").val();
+            var status = $("input[name=status]:checked").val();
+
+
+            $.ajax({
+                url: "/Doctor/AddRecord",
+                dataType: "JSON",
+                type: "POST",
+                data: { firstname: firstname, lastname: lastname, email: email, password: password, designation: designation, departmentList: departmentList, address: address, phone: phone, mobile: mobile, picture: picture, specialist: specialist, date_of_birth: date_of_birth, sex: sex, bloodGroup: bloodGroup, status: status},
+                success: function (result) {
+                    swal({
+                        title: "Good Job!",
+                        text: "Record has Added Successfully.",
+                        type: "success",
+                        timer: 1000
+                    }, function () {
+                        window.location.href = "/Doctor/AddDoctor";
+                    });
+                   
+                },
+                error: function (err) {
+                    alert("Something went wrong");
+                }
+                
+               
+            });
+
+
+        }
+      
+
+    </script>
+</body>
+</html>
+

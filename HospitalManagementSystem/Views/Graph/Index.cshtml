@@ -1,0 +1,122 @@
+﻿@{
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/myLayout.cshtml";
+
+}
+
+<br />
+
+
+<html>
+<head>
+    <title></title>
+
+
+</head>
+<body>
+
+
+
+
+   
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            $.ajax({
+                type: "GET",
+                url: "/Graph/BarChart",
+                data: {},
+
+                dataType: "json",
+                success: function (r) {
+                    var data = google.visualization.arrayToDataTable(r);
+                    var options = {
+                        title: 'Department'
+                    };
+                   
+
+                    var chart = new google.visualization.PieChart($("#chart")[0]);
+                    chart.draw(data, options);
+                },
+                failure: function (r) {
+                    alert(r.d);
+                },
+                error: function (r) {
+                    alert(r.d);
+                }
+            });
+
+        }
+
+
+                    //$(document).ready(function () {
+
+                    //    $.ajax({
+                    //        type: "GET",
+                    //        url: "/Graph/BarChart",
+                    //        data: {},
+
+                    //        dataType: "json",
+                    //        success: function (response) {
+                    //            successFunc(response);
+                    //        },
+                    //    });
+
+                    //});
+                    //function successFunc(jsondata) {
+                    //    var data = {};
+                    //    var countryNames = [];
+                    //    jsondata.forEach(function (e) {
+                    //        countryNames.push(e.departID);
+                    //        data[e.departID] = e.departID;
+
+                    //        countryNames.push(e.departDescription);
+                    //        data[e.departDescription] = e.departDescription;
+
+                    //        //data[e.departName] = e.departDescription;
+
+                    //    })
+                    //    var chart = c3.generate({
+                    //        bindto: '#pieChart',
+                    //        data: {
+                    //            json: [data],
+                    //            keys: {
+                    //                value: countryNames
+                    //            },
+                    //            type: 'bar'
+                    //        },
+                    //        color: {
+                    //            pattern: ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+                    //        },
+                    //        backgroundColor: [
+                    //            'rgba(255, 99, 132, 0.2)',
+                    //            'rgba(54, 162, 235, 0.2)',
+                    //            'rgba(255, 206, 86, 0.2)',
+                    //            'rgba(75, 192, 192, 0.2)',
+                    //            'rgba(153, 102, 255, 0.2)',
+                    //            'rgba(255, 159, 64, 0.2)'
+                    //        ],
+                    //        borderColor: [
+                    //            'rgba(255, 99, 132, 1)',
+                    //            'rgba(54, 162, 235, 1)',
+                    //            'rgba(255, 206, 86, 1)',
+                    //            'rgba(75, 192, 192, 1)',
+                    //            'rgba(153, 102, 255, 1)',
+                    //            'rgba(255, 159, 64, 1)'
+                    //        ],
+                    //        borderWidth: 1
+                    //    });
+                    //}
+
+
+
+    </script>
+    <div id="chart" style="width: 500px; height: 400px;">
+    </div>
+
+</body>
+</html>

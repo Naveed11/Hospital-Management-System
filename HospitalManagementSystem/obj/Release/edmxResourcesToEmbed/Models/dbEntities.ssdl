@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NaveedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Graph">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalValues" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HMS_BirthReport">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_BloodGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bloodGroup" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HMS_DeathReport">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_Department">
+    <Key>
+      <PropertyRef Name="departID" />
+    </Key>
+    <Property Name="departID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departName" Type="nvarchar(max)" />
+    <Property Name="departDescription" Type="varchar" MaxLength="2000" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="HMS_Doctor">
+    <Key>
+      <PropertyRef Name="docID" />
+    </Key>
+    <Property Name="docID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Designation" Type="nvarchar(max)" />
+    <Property Name="Department" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="bigint" />
+    <Property Name="Mobile" Type="bigint" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="Specialist" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_Document">
+    <Key>
+      <PropertyRef Name="documentID" />
+    </Key>
+    <Property Name="documentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patientName" Type="nvarchar" MaxLength="50" />
+    <Property Name="fileattachment" Type="nvarchar(max)" />
+    <Property Name="filename" Type="nvarchar(max)" />
+    <Property Name="filetype" Type="nvarchar(max)" />
+    <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="dateOfTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HMS_Medicine">
+    <Key>
+      <PropertyRef Name="medicineID" />
+    </Key>
+    <Property Name="medicineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="medicineName" Type="nvarchar" MaxLength="50" />
+    <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="decription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HMS_MedicineCategory">
+    <Key>
+      <PropertyRef Name="medicineID" />
+    </Key>
+    <Property Name="medicineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HMS_OperationReport">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_Patient">
+    <Key>
+      <PropertyRef Name="patientID" />
+    </Key>
+    <Property Name="patientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="bigint" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_PatientCaseStudy">
+    <Key>
+      <PropertyRef Name="prescriptionID" />
+    </Key>
+    <Property Name="prescriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FoodAllergies" Type="nvarchar" MaxLength="50" />
+    <Property Name="TendencyBlood" Type="nvarchar" MaxLength="50" />
+    <Property Name="HeartDisease" Type="nvarchar" MaxLength="50" />
+    <Property Name="HighBloodPressure" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diabetic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Surgery" Type="nvarchar" MaxLength="50" />
+    <Property Name="Accident" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyMedicalHistory" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrentMedication" Type="nvarchar" MaxLength="50" />
+    <Property Name="BreastFeeding" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthInsurance" Type="nvarchar" MaxLength="50" />
+    <Property Name="LowIncome" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HMS_Schedule">
+    <Key>
+      <PropertyRef Name="scheduleID" />
+    </Key>
+    <Property Name="scheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="availableDays" Type="nvarchar" MaxLength="50" />
+    <Property Name="startTime" Type="datetime" />
+    <Property Name="endTime" Type="datetime" />
+    <Property Name="perPatientTime" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="NaveedModelStoreContainer">
+    <EntitySet Name="Graph" EntityType="Self.Graph" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_BirthReport" EntityType="Self.HMS_BirthReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_BloodGroup" EntityType="Self.HMS_BloodGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_DeathReport" EntityType="Self.HMS_DeathReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_Department" EntityType="Self.HMS_Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_Doctor" EntityType="Self.HMS_Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_Document" EntityType="Self.HMS_Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_Medicine" EntityType="Self.HMS_Medicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_MedicineCategory" EntityType="Self.HMS_MedicineCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_OperationReport" EntityType="Self.HMS_OperationReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_Patient" EntityType="Self.HMS_Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_PatientCaseStudy" EntityType="Self.HMS_PatientCaseStudy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HMS_Schedule" EntityType="Self.HMS_Schedule" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

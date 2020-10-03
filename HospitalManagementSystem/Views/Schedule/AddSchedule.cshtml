@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "AddSchedule";
+    Layout = "~/Views/myLayout.cshtml";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Schedule</h1>
+                    <small>Add Schedule</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            <input type="hidden" name="" id="" value="">
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  form area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="/Schedule/ScheduleList"> <i class="fa fa-list"></i>  Schedule List </a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body panel-form">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12">
+
+                                    <form action="" class="form-inner" method="post" accept-charset="utf-8">
+                                        <input type="hidden" name="" value="">
+
+
+                                        <input type="hidden" name="schedule_id" value="">
+
+                                        <div class="form-group row">
+                                            <label for="doctor_id" class="col-xs-3 col-form-label">Doctor Name</label>
+                                            <div class="col-xs-9">
+                                               <!--Dropdown-->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="available_days" class="col-xs-3 col-form-label">Available Days</label>
+                                            <div class="col-xs-9">
+                                              <!--Dropdown-->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-xs-3 col-form-label">Available Time </label>
+                                            <div class="col-xs-9">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <input name="start_time" class="timepicker form-control hasDatepicker" type="text" placeholder="Start Time" value="" id="dp1595570593172">
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <input name="end_time" class="timepicker form-control hasDatepicker" type="text" placeholder="End Time" value="" id="dp1595570593173">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="per_patient_time" class="col-xs-3 col-form-label">Per Patient Time</label>
+                                            <div class="col-xs-9">
+                                                <input class="timepicker-hour-min-only form-control hasDatepicker" name="per_patient_time" type="text" placeholder="Per Patient Time" id="per_patient_time" value="">
+                                            </div>
+                                        </div>
+
+                                       
+
+                                        <div class="form-group row">
+                                            <label class="col-xs-3">Status</label>
+                                            <div class="col-xs-9">
+                                                <div class="form-check">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="status" value="1" checked="&quot;checked&quot;">Active
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="status" value="0">Inactive
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-offset-3 col-sm-6">
+                                                <div class="ui buttons">
+                                                    
+                                                    <button class="ui positive button">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- /.content -->
+    </div>
+</body>
+</html>

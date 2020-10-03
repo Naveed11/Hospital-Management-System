@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "BloodGroupList";
+    Layout = "~/Views/myLayout.cshtml";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Hospital Activities</h1>
+                    <small>Blood Group List</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  table area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-success" href="/HospitalActivities/AddBloodGroup"> <i class="fa fa-plus"></i>  Add Blood Group </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table id="tblEmployee" class=" tblEmployee datatable table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" style="width: 100%;" width="100%" cellspacing="0">
+
+                                <thead></thead>
+                                <tbody></tbody>
+
+                            </table>
+                            <!--Department List goes here-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /.content -->
+    </div>
+
+    
+
+    <script>
+        $.ajax({
+            url: "/HospitalActivities/GetRecordFromBloodGroup",
+            dataType: "JSON",
+            type: "GET",
+            data: {},
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                var item = '';
+                var rows = "<tr class='table-background-color-changer  text-color-changer'>" +
+                    " <th class='text-center'>Blood Group</th> <th class='text-center'>Action</th>" +
+                    "</tr>";
+                $("#tblEmployee thead").append(rows);
+                $.each(data, function (i, item) {
+                    var bodyRow = "<tr>" +
+                        "<td class='text-center'>" + item.bloodGroup + "</td>" +
+                        
+                        "<td class='text-center'>" +
+
+                        "<a href='#' onclick='edit(" + item.id+")' class='btn btn-xs  btn-info' style='margin-left:5px;'><i class='fa fa-edit'></i></a>" +
+                        "<a href='#' class='btn btn-xs  btn-danger' style='margin-left:5px;'><i class='fa fa-trash'></i></a>"+
+                        "</td>"+
+
+                        "</tr>";
+                    $("#tblEmployee tbody").append(bodyRow);
+                });
+                $('#tblEmployee').dataTable();
+            },
+            error: function (err) {
+                alert("Something went wrong");
+            }
+
+
+        });
+
+        function edit(value) {
+
+
+            var id = value;
+
+            var url = "/HospitalActivities/BloodGroupEditPage";
+
+            window.location.href = url + "/" + id;
+
+
+        }
+    </script>
+
+</body>
+</html>
+

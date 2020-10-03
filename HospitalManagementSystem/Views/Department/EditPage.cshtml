@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "EditPage";
+    Layout = "~/Views/myLayout.cshtml";
+}
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1070px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Department</h1>
+                    <small>Add Department</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            <input type="hidden" name="" id="" value="">
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  form area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="/Department/DepartmentList"> <i class="fa fa-list"></i>  Department List </a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body panel-form">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12">
+
+
+                                    <div class="form-group row">
+                                        <label for="name" class="col-xs-3 col-form-label">Department Name <i class="text-danger">*</i></label>
+                                        <div class="col-xs-9">
+                                            <input name="name" type="text" class="form-control" id="departmentName" placeholder="Department Name" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="description" class="col-xs-3 col-form-label">Description</label>
+                                        <div class="col-xs-9">
+                                            <textarea name="description" id="description" class="form-control" placeholder="Description" rows="7"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!--Radio-->
+                                    <div class="form-group row">
+                                        <label class="col-xs-3 col-form-label">Status</label>
+                                        <div class="col-xs-9">
+                                            <div class="form-check">
+                                                <label class="radio-inline"><input type="radio" name="statusValue" class="activeRadioBtn" value="1">Active</label>
+                                                <label class="radio-inline"><input type="radio" name="statusValue" class="inactiveRadioBtn" value="0">Inactive</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-offset-3 col-sm-6">
+                                            <div class="ui buttons">
+
+                                                <button type="button" onclick="update()" class="ui positive button btn btn-success" id="btnUpdate">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /.content -->
+    </div>
+    <script>
+        var last_segment = document.URL;
+        var arr = last_segment.split('/');
+        var final_value = arr[arr.length - 1];
+
+        
+
+        $.ajax({
+
+            url: "/Department/GetRecordById",
+            type: "POST",
+            data: { final_value: final_value},
+            dataType: "JSON",
+            success: function (data) {
+                $("#departmentName").val(data[0].departName);
+                $("#description").val(data[0].departDescription);
+                if (data[0].Status == 1) {
+                    $(".activeRadioBtn").attr("checked", true);
+
+                }
+                else {
+                    $(".inactiveRadioBtn").attr("checked", true);
+                }
+            },
+            error: function (er) {
+                alert("Something went wrong");
+            }
+            
+        });
+       
+        function update() {
+        var departmentName = $("#departmentName").val();
+        var description = $("#description").val();
+            var radioStatus = $("input[name='statusValue']:checked").val();
+          
+        $.ajax({
+            url: "/Department/UpdateRecord",
+            type: "POST",
+            data: { departmentName: departmentName, description: description, radioStatus: radioStatus, final_value: final_value },
+            dataType: "JSON",
+            success: function (result) {
+                swal({
+                    title: "Good Job!",
+                    text: "Record has Updated Successfully.",
+                    type: "success",
+                    timer: 1000
+                }, function () {
+                    window.location.href = "/Department/DepartmentList";
+                });
+               
+            },
+            error: function (er) {
+                alert("Something went wrong");
+            }
+        });
+        //   
+        }
+        //function add() {
+        //    var departmentName = $("#departmentName").val();
+        //    var description = $("#description").val();
+        //    var statusRadio = $("input[name=status]:checked").val();
+
+        //    $.ajax({
+        //        url: "/Department/AddRecord",
+        //        dataType: "JSON",
+        //        type: "POST",
+        //        data: { departmentName: departmentName, description: description, statusRadio: statusRadio },
+        //        success: function (result) {
+
+        //            window.location.href = "/Department/AddDepartment";
+        //        },
+        //        error: function (er) {
+        //            alert("Something went wrong");
+        //        }
+
+        //    });
+        //}
+
+
+
+
+
+
+    </script>
+</body>
+</html>

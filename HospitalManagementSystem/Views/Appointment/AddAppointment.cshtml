@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "AddAppointment";
+    Layout = "~/Views/myLayout.cshtml";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="content-wrapper" style="min-height: 1190px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <div class="p-l-30 p-r-30">
+                <div class="header-icon"><i class="pe-7s-world"></i></div>
+                <div class="header-title">
+                    <h1>Appointment</h1>
+                    <small>Add Appointment</small>
+                </div>
+            </div>
+        </section>
+        <!-- Main content -->
+        <div class="content">
+            <div id="demoModeEnable"></div>
+            <input type="hidden" name="" id="" value="">
+            <!-- alert message -->
+            <!-- content -->
+            <div class="row">
+                <!--  form area -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default thumbnail">
+
+                        <div class="panel-heading no-print">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="/Appointment/AppointmentList"> <i class="fa fa-list"></i>  Appointment List </a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body panel-form">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12">
+                                    <form action="" class="form-inner" method="post" accept-charset="utf-8">
+                                        <input type="hidden" name="" value="">
+
+
+                                        <!-- patient id -->
+                                        <div class="form-group row">
+                                            <label for="patient_id" class="col-xs-3 col-form-label">Patient ID <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <input name="patient_id" autocomplete="off" type="text" class="form-control" id="patient_id" placeholder="Patient ID" value="">
+                                                <span></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="department_id" class="col-xs-3 col-form-label">Department Name <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <!--Dropdown-->
+                                                <span class="doctor_error"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="doctor_id" class="col-xs-3 col-form-label">Doctor Name <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                               <!--Dropdown-->
+                                                <div id="available_days"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="date" class="col-xs-3 col-form-label">Appointment Date <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <input name="date" type="text" class="datepicker-avaiable-days form-control hasDatepicker" id="date" placeholder="Appointment Date" autocpmplete="off">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label for="serial_no" class="col-xs-3 col-form-label">Serial No <i class="text-danger">*</i></label>
+                                            <div class="col-xs-9">
+                                                <div id="serial_preview">
+                                                    <div type="button" class="btn btn-success disabled btn-sm"> 01</div>
+                                                    <div type="button" class="btn btn-success disabled btn-sm"> 02</div>
+                                                    <div type="button" class="btn btn-success disabled btn-sm"> 03</div>...
+                                                    <div type="button" class="slbtn btn btn-success disabled btn-sm"> N</div>
+
+                                                </div>
+                                                <input type="hidden" name="schedule_id" id="schedule_id">
+                                                <input type="hidden" name="serial_no" id="serial_no">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="problem" class="col-xs-3 col-form-label">Problem</label>
+                                            <div class="col-xs-9">
+                                                <textarea name="problem" class="form-control" placeholder="Problem" maxlength="140" rows="7"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-xs-3">Status</label>
+                                            <div class="col-xs-9">
+                                                <div class="form-check">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="status" value="1" checked=">Active
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="status" value="0">Inactive
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-offset-3 col-sm-6">
+                                                <div class="ui buttons">
+                                                    
+                                                    <button class="ui positive button">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <script src="https://hospitalnew.bdtask.com/demo7/assets/js/admin/appointment.js" type="text/javascript"></script>
+        </div> <!-- /.content -->
+    </div>
+</body>
+</html>
+

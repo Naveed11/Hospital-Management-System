@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NaveedModelStoreContainer" CdmEntityContainer="NaveedEntities">
+    <EntitySetMapping Name="HMS_BirthReport">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_BirthReport">
+        <MappingFragment StoreEntitySet="HMS_BirthReport">
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_DeathReport">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_DeathReport">
+        <MappingFragment StoreEntitySet="HMS_DeathReport">
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_MedicineCategory">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_MedicineCategory">
+        <MappingFragment StoreEntitySet="HMS_MedicineCategory">
+          <ScalarProperty Name="medicineID" ColumnName="medicineID" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_OperationReport">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_OperationReport">
+        <MappingFragment StoreEntitySet="HMS_OperationReport">
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_PatientCaseStudy">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_PatientCaseStudy">
+        <MappingFragment StoreEntitySet="HMS_PatientCaseStudy">
+          <ScalarProperty Name="prescriptionID" ColumnName="prescriptionID" />
+          <ScalarProperty Name="FoodAllergies" ColumnName="FoodAllergies" />
+          <ScalarProperty Name="TendencyBlood" ColumnName="TendencyBlood" />
+          <ScalarProperty Name="HeartDisease" ColumnName="HeartDisease" />
+          <ScalarProperty Name="HighBloodPressure" ColumnName="HighBloodPressure" />
+          <ScalarProperty Name="Diabetic" ColumnName="Diabetic" />
+          <ScalarProperty Name="Surgery" ColumnName="Surgery" />
+          <ScalarProperty Name="Accident" ColumnName="Accident" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="FamilyMedicalHistory" ColumnName="FamilyMedicalHistory" />
+          <ScalarProperty Name="CurrentMedication" ColumnName="CurrentMedication" />
+          <ScalarProperty Name="BreastFeeding" ColumnName="BreastFeeding" />
+          <ScalarProperty Name="HealthInsurance" ColumnName="HealthInsurance" />
+          <ScalarProperty Name="LowIncome" ColumnName="LowIncome" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Schedule">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_Schedule">
+        <MappingFragment StoreEntitySet="HMS_Schedule">
+          <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+          <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+          <ScalarProperty Name="availableDays" ColumnName="availableDays" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="perPatientTime" ColumnName="perPatientTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Medicine">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_Medicine">
+        <MappingFragment StoreEntitySet="HMS_Medicine">
+          <ScalarProperty Name="decription" ColumnName="decription" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="medicineName" ColumnName="medicineName" />
+          <ScalarProperty Name="medicineID" ColumnName="medicineID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Department">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_Department">
+        <MappingFragment StoreEntitySet="HMS_Department">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="departDescription" ColumnName="departDescription" />
+          <ScalarProperty Name="departName" ColumnName="departName" />
+          <ScalarProperty Name="departID" ColumnName="departID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_BloodGroup">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_BloodGroup">
+        <MappingFragment StoreEntitySet="HMS_BloodGroup">
+          <ScalarProperty Name="bloodGroup" ColumnName="bloodGroup" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Graphs">
+      <EntityTypeMapping TypeName="NaveedModel.Graph">
+        <MappingFragment StoreEntitySet="Graph">
+          <ScalarProperty Name="TotalValues" ColumnName="TotalValues" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Patient">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_Patient">
+        <MappingFragment StoreEntitySet="HMS_Patient">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="patientID" ColumnName="patientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Document">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_Document">
+        <MappingFragment StoreEntitySet="HMS_Document">
+          <ScalarProperty Name="dateOfTime" ColumnName="dateOfTime" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+          <ScalarProperty Name="filetype" ColumnName="filetype" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="fileattachment" ColumnName="fileattachment" />
+          <ScalarProperty Name="patientName" ColumnName="patientName" />
+          <ScalarProperty Name="documentID" ColumnName="documentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HMS_Doctor">
+      <EntityTypeMapping TypeName="NaveedModel.HMS_Doctor">
+        <MappingFragment StoreEntitySet="HMS_Doctor">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Specialist" ColumnName="Specialist" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="docID" ColumnName="docID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
